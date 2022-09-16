@@ -1,44 +1,42 @@
 import "./CurrentWeather.css"
-import WeatherSkeleton from "./WeatherSkeleton"
 
-export default function CurrentWeather({ data }: any) {
-    if (!data)  return <WeatherSkeleton />
+import React from "react"
+
+export default function WeatherSkeleton() {
     return (
         <div className="weather">
             <div className="top">
                 <div>
-                    <p className="city">{data?.city}</p>
-                    <p className="weather-description">
-                        {data?.weather[0].description}
-                    </p>
+                    <p className="city">Lagos, NG</p>
+                    <p className="weather-description">Sunny AF</p>
                 </div>
                 <img
-                    src={`icons/${data?.weather[0].icon}.png`}
+                    src="icons/01d.png"
                     alt="weather"
                     className="weather-icon"
                 />
             </div>
             <div className="bottom">
-                <p className="temperature">{Math.round(data.main.temp)}°C</p>
+                <p className="temperature">18°C</p>
                 <div className="details">
                     <div className="parameter-row">
                         <span className="parameter-label">Details</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Feels like</span>
-                        <span className="parameter-value">{Math.round(data.main.feels_like)}°C</span>
+                        <span className="parameter-value">22°C</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Wind</span>
-                        <span className="parameter-value">{data.wind.speed} m/s</span>
+                        <span className="parameter-value">2 m/s</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Humidity</span>
-                        <span className="parameter-value">{data.main.humidity}%</span>
+                        <span className="parameter-value">2%</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Pressure</span>
-                        <span className="parameter-value">{data.main.pressure} hPa</span>
+                        <span className="parameter-value">2 hPa</span>
                     </div>
                 </div>
             </div>

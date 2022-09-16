@@ -1,9 +1,9 @@
-import reactLogo from "./assets/react.svg"
 import "./App.css"
 import Search from "./components/search/Search"
 import CurrentWeather from "./components/weather/CurrentWeather"
 import { WEATHER_API_KEY, WEATHER_API_URL } from "./components/api"
 import { useState } from "react"
+import Forecast from "./components/forecast/Forecast"
 
 type searchDataType = {
     latitude: string
@@ -36,13 +36,13 @@ function App() {
         }
     }
 
-    console.log(curWeather)
     console.log(forecast)
 
     return (
         <div className="container">
             <Search onSearchChange={handleOnSearchChange} />
             <CurrentWeather data={curWeather}/>
+            {forecast && <Forecast data={forecast} />}
         </div>
     )
 }
